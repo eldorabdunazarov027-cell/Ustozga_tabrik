@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>1-oktabr — Ustozlar kuni</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#7D3A3D;
+    --board-2:#8E4649;
+    --paper:#FBF5EF;
+    --paper-2:#F4E1D8;
+    --ink:#3B2E2C;
+    --chalk:#FBF1E9;
+    --gold:#C9973E;
+    --sage:#C98B86;
+    --rose:#B6553B;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:env(safe-area-inset-top,0px);}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:'Manrope',sans-serif; overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{font-family:'Fraunces',serif;}
+  img,svg{max-width:100%;}
+  section{position:relative; padding:5.5rem 1.5rem;}
+  .wrap{max-width:760px; margin:0 auto;}
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .8s ease, transform .8s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100svh; background:var(--board); color:var(--chalk); position:relative;
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    text-align:center; padding:3rem 1.5rem; overflow:hidden;
+  }
+  .hero .drift{position:absolute; border-radius:50%; opacity:.16; filter:blur(1px); animation:drift 26s ease-in-out infinite;}
+  .hero .drift.a{width:220px; height:220px; background:var(--gold); top:8%; left:-60px; animation-delay:0s;}
+  .hero .drift.b{width:160px; height:160px; background:var(--rose); bottom:10%; right:-40px; animation-delay:-8s;}
+  .hero .drift.c{width:120px; height:120px; background:var(--sage); bottom:30%; left:8%; animation-delay:-16s;}
+  @keyframes drift{0%,100%{transform:translateY(0) translateX(0);}50%{transform:translateY(-26px) translateX(18px);}}
+  .eyebrow{
+    font-size:.95rem; letter-spacing:.02em; color:var(--gold); margin:0 0 .6rem;
+    opacity:0; animation:fadeUp .9s ease .1s forwards;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 6.5vw, 3.6rem); font-weight:600; line-height:1.08; margin:0 0 1.1rem;
+    max-width:15ch; opacity:0; animation:fadeUp .9s ease .3s forwards;
+  }
+  .hero svg.squiggle{width:150px; height:20px; margin:.3rem 0 1.6rem; opacity:0; animation:fadeUp .9s ease .5s forwards;}
+  .hero p.lede{
+    font-size:1.15rem; line-height:1.7; max-width:34ch; color:#F0D9CE; margin:0 0 2rem;
+    opacity:0; animation:fadeUp .9s ease .7s forwards;
+  }
+  .hero .quote{
+    font-family:'Fraunces',serif; font-style:italic; font-size:1.15rem; color:var(--chalk);
+    max-width:26ch; opacity:0; animation:fadeUp .9s ease .9s forwards;
+  }
+  @keyframes fadeUp{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);}}
+
+  .scroll-cue{
+    position:absolute; bottom:22px; left:50%; margin-left:-11px; color:var(--chalk);
+    opacity:0; animation:cueFade .9s ease 1.2s forwards, cueBounce 1.8s ease-in-out 2.1s infinite;
+  }
+  @keyframes cueFade{to{opacity:.7;}}
+  @keyframes cueBounce{0%,100%{transform:translateY(0);} 50%{transform:translateY(8px);}}
+
+  .confetti-piece{
+    position:fixed; top:-14px; width:8px; height:14px; z-index:9999; pointer-events:none; will-change:transform;
+    animation-name:confettiFall; animation-timing-function:ease-in; animation-fill-mode:forwards;
+  }
+  @keyframes confettiFall{to{transform:translateY(112vh) rotate(var(--rot));}}
+
+  /* ---------- SECTION HEADERS ---------- */
+  .kicker{color:var(--rose); font-size:.95rem; margin:0 0 .4rem; font-weight:600;}
+  .sec-title{font-size:clamp(1.6rem,4vw,2.2rem); font-weight:600; margin:0 0 2.2rem; max-width:16ch;}
+  /* ---------- MEMORIES ---------- */
+  .memories-band{background:var(--board-2); color:var(--chalk);}
+  .memories-band .kicker{color:var(--gold);}
+  .mem-grid{display:flex; flex-wrap:wrap; gap:1.6rem; margin-top:1.6rem; justify-content:center;}
+  .mem-card{
+    background:var(--chalk); color:var(--ink); width:250px; padding:1.4rem 1.3rem 1.2rem;
+    border-radius:2px; box-shadow:0 10px 26px rgba(0,0,0,.28);
+  }
+  .mem-card:nth-child(1){transform:rotate(-2.5deg);}
+  .mem-card:nth-child(2){transform:rotate(1.8deg); margin-top:1.4rem;}
+  .mem-card:nth-child(3){transform:rotate(-1deg);}
+  .mem-card:hover{transform:rotate(0deg) translateY(-4px); transition:transform .35s ease;}
+  .mem-card p{font-family:'Fraunces',serif; font-style:italic; line-height:1.55; margin:0 0 1rem; font-size:1.02rem;}
+  .mem-card .who{font-family:'Manrope',sans-serif; font-weight:700; font-size:.85rem; color:var(--rose);}
+
+  /* ---------- WISHES ---------- */
+  .wish-field{display:flex; flex-wrap:wrap; gap:1.4rem; margin-top:1.8rem;}
+  .wish{
+    background:var(--paper-2); padding:1.3rem 1.2rem; width:220px; font-size:.96rem; line-height:1.5;
+    clip-path:polygon(0 6%,94% 0,100% 92%,6% 100%); transition:transform .3s ease, box-shadow .3s ease; box-shadow:0 0 0 rgba(0,0,0,0);
+  }
+  .wish:hover{transform:rotate(0deg) translateY(-5px); box-shadow:0 12px 22px rgba(59,46,44,.16);}
+  .wish:nth-child(odd){transform:rotate(-1.6deg);}
+  .wish:nth-child(even){transform:rotate(1.4deg);}
+  .wish .who{display:block; margin-top:.7rem; font-weight:700; color:var(--sage); font-size:.85rem;}
+
+  /* ---------- FINAL ---------- */
+  .final{background:var(--board); color:var(--chalk); text-align:center;}
+  .final h2{font-size:clamp(2rem,6vw,3rem); font-weight:600; margin:0 0 1.3rem;}
+  .final p{max-width:36ch; margin:0 auto 2.2rem; line-height:1.75; color:#F0D9CE; font-size:1.08rem;}
+  .final .closing{font-family:'Fraunces',serif; font-style:italic; color:var(--gold); font-size:1.2rem;}
+
+  footer{padding:2rem 1.5rem; text-align:center; font-size:.85rem; color:#9C7A70; background:var(--paper);}
+
+  @media(max-width:640px){
+    .mem-card, .wish{width:100%; max-width:320px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .drift, .reveal, .hero *, .scroll-cue, .confetti-piece{animation:none !important; transition:none !important; opacity:1 !important; transform:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <span class="drift a"></span><span class="drift b"></span><span class="drift c"></span>
+  <p class="eyebrow">1-oktabr</p>
+  <h1>Ustozlar va murabbiylar kuni</h1>
+  <svg class="squiggle" viewBox="0 0 150 20"><path d="M2 14 Q 20 2, 38 14 T 74 14 T 110 14 T 146 14" fill="none" stroke="#C9973E" stroke-width="2.5" stroke-linecap="round"/></svg>
+  <p class="lede">Sizga bag'ishlangan kichik, samimiy sovg'a — buni o'quvchilaringiz siz uchun tayyorladi.</p>
+  <p class="quote">"Siz bergan bilim — kelajak sari yo'l."</p>
+  <div class="scroll-cue" aria-hidden="true">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
+</section>
+
+<section class="memories-band">
+  <div class="wrap reveal">
+    <p class="kicker">Xotiralar</p>
+    <h2 class="sec-title">Eng yaqin xotiralarimiz</h2>
+    <div class="mem-grid">
+      <div class="mem-card">
+        <p>"Sizning darslaringizda vaqt qanday o'tganini bilmay qolardik. Har bir mavzuni shunchalik qiziqarli tushuntirar edingiz."</p>
+      </div>
+      <div class="mem-card">
+        <p>"Qiynalgan paytimda yonimda bo'lib, ishonch bag'ishlaganingiz uchun rahmat. Buni hech qachon unutmayman."</p>
+      </div>
+      <div class="mem-card">
+        <p>"Siz nafaqat fan, balki hayotga bo'lgan qarashimizni ham o'zgartirdingiz. Bu biz uchun juda qadrli."</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="wrap reveal">
+    <p class="kicker">Tilaklar</p>
+    <h2 class="sec-title">Sizga bo'lgan tilaklarimiz</h2>
+    <div class="wish-field">
+      <div class="wish">Ustoz, bergan bilimlaringiz va sabringiz uchun katta rahmat!</div>
+      <div class="wish">Sog'lig'ingiz mustahkam, kunlaringiz baxtli bo'lsin.</div>
+      <div class="wish">Har doim shunday mehribon va sabrli bo'lib qoling.</div>
+      <div class="wish">Siz biz uchun oddiy o'qituvchi emas, haqiqiy yo'lboshchisiz.</div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap reveal">
+    <h2>Rahmat sizga, Ustoz!</h2>
+    <p>Bizga faqat fan emas, hayot saboqlarini ham o'rgatayotganingiz uchun tashakkur. Har bir bergan bilimingiz va aytgan so'zingiz kelajagimizda o'z aksini topadi.</p>
+    <p class="closing">1-oktabr — Ustozlar va murabbiylar kuni muborak!</p>
+  </div>
+</section>
+
+<footer>O'quvchilaringiz tomonidan mehr bilan tayyorlandi</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.15});
+  els.forEach(el=>io.observe(el));
+
+  function launchConfetti(){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const colors = ['#B6553B','#C9973E','#F4E1D8','#FBF1E9','#8E4649'];
+    const count = 60;
+    for(let i=0;i<count;i++){
+      const piece = document.createElement('span');
+      piece.className = 'confetti-piece';
+      const dur = 2.4 + Math.random()*1.8;
+      const delay = Math.random()*.6;
+      const rot = (Math.random()*720 - 360) + 'deg';
+      piece.style.left = (Math.random()*100) + 'vw';
+      piece.style.background = colors[Math.floor(Math.random()*colors.length)];
+      piece.style.borderRadius = Math.random() > .5 ? '50%' : '2px';
+      piece.style.setProperty('--rot', rot);
+      piece.style.animationDuration = dur + 's';
+      piece.style.animationDelay = delay + 's';
+      document.body.appendChild(piece);
+      setTimeout(()=>piece.remove(), (dur+delay)*1000 + 100);
+    }
+  }
+  window.addEventListener('load', launchConfetti);
+</script>
+</body>
+</html>
